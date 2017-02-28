@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E452A4B71E647BCA009660FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E452A4B61E647BCA009660FF /* main.m */; };
+		E452A4BA1E647BCA009660FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E452A4B91E647BCA009660FF /* AppDelegate.m */; };
+		E452A4BD1E647BCA009660FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E452A4BC1E647BCA009660FF /* ViewController.m */; };
+		E452A4C01E647BCA009660FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E452A4BE1E647BCA009660FF /* Main.storyboard */; };
+		E452A4C21E647BCA009660FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E452A4C11E647BCA009660FF /* Assets.xcassets */; };
+		E452A4C51E647BCA009660FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E452A4C31E647BCA009660FF /* LaunchScreen.storyboard */; };
+		E452A4D41E647C19009660FF /* JSDLocationAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E452A4D31E647C19009660FF /* JSDLocationAlertViewController.m */; };
+		E452A4DC1E6488B0009660FF /* JSDAlertContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E452A4DB1E6488B0009660FF /* JSDAlertContentView.m */; };
+		E452A4DE1E6488C0009660FF /* JSDAlertContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E452A4DD1E6488C0009660FF /* JSDAlertContentView.xib */; };
+		E452A4E11E649082009660FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E452A4E01E649082009660FF /* MapKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E452A4B21E647BCA009660FF /* LocationAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E452A4B61E647BCA009660FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E452A4B81E647BCA009660FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E452A4B91E647BCA009660FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E452A4BB1E647BCA009660FF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E452A4BC1E647BCA009660FF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E452A4BF1E647BCA009660FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E452A4C11E647BCA009660FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E452A4C41E647BCA009660FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E452A4C61E647BCA009660FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E452A4D21E647C19009660FF /* JSDLocationAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDLocationAlertViewController.h; sourceTree = "<group>"; };
+		E452A4D31E647C19009660FF /* JSDLocationAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDLocationAlertViewController.m; sourceTree = "<group>"; };
+		E452A4DA1E6488B0009660FF /* JSDAlertContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDAlertContentView.h; sourceTree = "<group>"; };
+		E452A4DB1E6488B0009660FF /* JSDAlertContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDAlertContentView.m; sourceTree = "<group>"; };
+		E452A4DD1E6488C0009660FF /* JSDAlertContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSDAlertContentView.xib; sourceTree = "<group>"; };
+		E452A4E01E649082009660FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E452A4AF1E647BCA009660FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E452A4E11E649082009660FF /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E452A4A91E647BCA009660FF = {
+			isa = PBXGroup;
+			children = (
+				E452A4B41E647BCA009660FF /* LocationAlert */,
+				E452A4B31E647BCA009660FF /* Products */,
+				E452A4DF1E649081009660FF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E452A4B31E647BCA009660FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E452A4B21E647BCA009660FF /* LocationAlert.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E452A4B41E647BCA009660FF /* LocationAlert */ = {
+			isa = PBXGroup;
+			children = (
+				E452A4CC1E647BCF009660FF /* AlertDialogue */,
+				E452A4B81E647BCA009660FF /* AppDelegate.h */,
+				E452A4B91E647BCA009660FF /* AppDelegate.m */,
+				E452A4BB1E647BCA009660FF /* ViewController.h */,
+				E452A4BC1E647BCA009660FF /* ViewController.m */,
+				E452A4BE1E647BCA009660FF /* Main.storyboard */,
+				E452A4C11E647BCA009660FF /* Assets.xcassets */,
+				E452A4C31E647BCA009660FF /* LaunchScreen.storyboard */,
+				E452A4C61E647BCA009660FF /* Info.plist */,
+				E452A4B51E647BCA009660FF /* Supporting Files */,
+			);
+			path = LocationAlert;
+			sourceTree = "<group>";
+		};
+		E452A4B51E647BCA009660FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E452A4B61E647BCA009660FF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E452A4CC1E647BCF009660FF /* AlertDialogue */ = {
+			isa = PBXGroup;
+			children = (
+				E452A4D21E647C19009660FF /* JSDLocationAlertViewController.h */,
+				E452A4D31E647C19009660FF /* JSDLocationAlertViewController.m */,
+				E452A4DA1E6488B0009660FF /* JSDAlertContentView.h */,
+				E452A4DB1E6488B0009660FF /* JSDAlertContentView.m */,
+				E452A4DD1E6488C0009660FF /* JSDAlertContentView.xib */,
+			);
+			name = AlertDialogue;
+			sourceTree = "<group>";
+		};
+		E452A4DF1E649081009660FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E452A4E01E649082009660FF /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E452A4B11E647BCA009660FF /* LocationAlert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E452A4C91E647BCA009660FF /* Build configuration list for PBXNativeTarget "LocationAlert" */;
+			buildPhases = (
+				E452A4AE1E647BCA009660FF /* Sources */,
+				E452A4AF1E647BCA009660FF /* Frameworks */,
+				E452A4B01E647BCA009660FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocationAlert;
+			productName = LocationAlert;
+			productReference = E452A4B21E647BCA009660FF /* LocationAlert.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E452A4AA1E647BCA009660FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "TXD Digital";
+				TargetAttributes = {
+					E452A4B11E647BCA009660FF = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6ZBXMFUFJ7;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E452A4AD1E647BCA009660FF /* Build configuration list for PBXProject "LocationAlert" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E452A4A91E647BCA009660FF;
+			productRefGroup = E452A4B31E647BCA009660FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E452A4B11E647BCA009660FF /* LocationAlert */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E452A4B01E647BCA009660FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E452A4C51E647BCA009660FF /* LaunchScreen.storyboard in Resources */,
+				E452A4C21E647BCA009660FF /* Assets.xcassets in Resources */,
+				E452A4DE1E6488C0009660FF /* JSDAlertContentView.xib in Resources */,
+				E452A4C01E647BCA009660FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E452A4AE1E647BCA009660FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E452A4BD1E647BCA009660FF /* ViewController.m in Sources */,
+				E452A4BA1E647BCA009660FF /* AppDelegate.m in Sources */,
+				E452A4D41E647C19009660FF /* JSDLocationAlertViewController.m in Sources */,
+				E452A4DC1E6488B0009660FF /* JSDAlertContentView.m in Sources */,
+				E452A4B71E647BCA009660FF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E452A4BE1E647BCA009660FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E452A4BF1E647BCA009660FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E452A4C31E647BCA009660FF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E452A4C41E647BCA009660FF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E452A4C71E647BCA009660FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E452A4C81E647BCA009660FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E452A4CA1E647BCA009660FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6ZBXMFUFJ7;
+				INFOPLIST_FILE = LocationAlert/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JSD.LocationAlert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E452A4CB1E647BCA009660FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6ZBXMFUFJ7;
+				INFOPLIST_FILE = LocationAlert/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JSD.LocationAlert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E452A4AD1E647BCA009660FF /* Build configuration list for PBXProject "LocationAlert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E452A4C71E647BCA009660FF /* Debug */,
+				E452A4C81E647BCA009660FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E452A4C91E647BCA009660FF /* Build configuration list for PBXNativeTarget "LocationAlert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E452A4CA1E647BCA009660FF /* Debug */,
+				E452A4CB1E647BCA009660FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E452A4AA1E647BCA009660FF /* Project object */;
+}
