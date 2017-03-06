@@ -14,6 +14,10 @@
 @property (strong, nonatomic) IBOutlet JSDAlertContentView *xibView;
 @property (weak, nonatomic) IBOutlet UIView *leftView; // Used to work out height
 
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
+@property (nonatomic, strong) NSArray <CLLocation *> *pinLocations;
+
 // UI
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageLabelDistanceToTopConstraint;
@@ -37,6 +41,7 @@ static CGFloat titleLabelWidth = 228.0;
                          andTitle: (NSString *) title
                      andLocations: (NSArray <CLLocation *>*) locations {
     [self addMapAnnotations:locations];
+    [self startGettingLocation];
     [self setMessageYBasedOnTitleHeight:[self calculateHeightOfTitle:title]];
     self.messageLabel.text = message;
     [self updateLayout];
@@ -46,6 +51,7 @@ static CGFloat titleLabelWidth = 228.0;
                                    andTitle: (NSString *) title
                                andLocations: (NSArray <CLLocation *>*) locations {
     [self addMapAnnotations:locations];
+    [self startGettingLocation];
     [self setMessageYBasedOnTitleHeight:[self calculateHeightOfTitle:title]];
     self.messageLabel.attributedText = message;
     [self updateLayout];
@@ -55,23 +61,24 @@ static CGFloat titleLabelWidth = 228.0;
 
 - (void) addMapAnnotations: (NSArray <CLLocation *>*) locations {
     if (locations && locations.count) {
-        MKMapRect zoomRect = MKMapRectNull;
+        self.pinLocations = locations;
+        
         for (CLLocation *location in locations) {
             
             // Add the pins
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
             annotation.coordinate = location.coordinate;
             [self.mapView addAnnotation:annotation];
-            
-            // Work out the zoom rect, but dont use it right now as we will only use the last
-            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
-            zoomRect = MKMapRectUnion(zoomRect, pointRect);
         }
-        
-        // Zoom in on the last item
-        [self.mapView setVisibleMapRect:zoomRect animated:YES];
-        
+    }
+}
+
+- (void) zoomToVenueAnnotation {
+    if (self.pinLocations && self.pinLocations.count) {
+        CLLocation *location = self.pinLocations.lastObject;
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500);
+        MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
+        [self.mapView setRegion:adjustedRegion animated:YES];
     }
 }
 
@@ -87,6 +94,64 @@ static CGFloat titleLabelWidth = 228.0;
     if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectOptionAtIndex:)]) {
         [self.delegate didSelectOptionAtIndex:1];
     }
+}
+
+#pragma mark - Mapping
+
+- (void) startGettingLocation {
+    if ([self.locationManager respondsToSelector:@selector(requestLocation)]) {
+        // Use this method to make the call once
+        [self.locationManager requestLocation];
+    }
+    else {
+        [self.locationManager startUpdatingLocation];
+    }
+}
+
+#pragma mark <MKMapViewDelegate> methods
+
+//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+//        return nil;
+//    }
+//    
+//    
+//    
+//}
+
+#pragma mark <CLLocationManagerDelegate> methods
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    // Zoom to show the user and the pin
+    // Be a little lazy and just use the first venue location we are passed
+    
+    if (self.pinLocations && self.pinLocations.count) {
+        CLLocation *venue = self.pinLocations.firstObject;
+        CLLocationCoordinate2D venue2D = venue.coordinate;
+        
+        CLLocation* currentLoc = [locations firstObject];
+        CLLocationCoordinate2D currentLoc2D = currentLoc.coordinate;
+        
+        MKMapPoint currentPoint = MKMapPointForCoordinate(currentLoc2D);
+        MKMapPoint venuePoint = MKMapPointForCoordinate(venue2D);
+        
+        MKMapRect currentPointRect = MKMapRectMake(currentPoint.x, currentPoint.y, 0, 0);
+        MKMapRect venuePointRect = MKMapRectMake(venuePoint.x, venuePoint.y, 0, 0);
+        
+        MKMapRect zoomRect = MKMapRectUnion(currentPointRect, venuePointRect);
+        MKMapRect unionRectThatFits = [self.mapView mapRectThatFits:zoomRect];
+        
+        [self.mapView setVisibleMapRect:unionRectThatFits edgePadding:UIEdgeInsetsMake(10, 10, 10, 10) animated:YES];
+        
+        [self.locationManager stopUpdatingLocation];
+    }
+}
+
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"Location manager failed: %@", error);
+    
+    // If we have an error, just zoom in on the venue
+    [self zoomToVenueAnnotation];
 }
 
 #pragma mark - Layout Helpers
@@ -133,8 +198,19 @@ static CGFloat titleLabelWidth = 228.0;
     self = [super initWithFrame:frame];
     if (self) {
         [self loadAndAddView];
+        _mapView.delegate = self;
+        _mapView.zoomEnabled = NO;
+        _mapView.scrollEnabled = NO;
+        _mapView.userInteractionEnabled = NO;
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        [_locationManager requestWhenInUseAuthorization];
     }
     return self;
+}
+
+- (void) dealloc {
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void) loadAndAddView {

@@ -25,7 +25,7 @@
 
 @end
 
-@interface JSDAlertContentView : UIView
+@interface JSDAlertContentView : UIView <MKMapViewDelegate, CLLocationManagerDelegate>
 
 
 /**
